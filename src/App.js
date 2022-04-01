@@ -1,7 +1,22 @@
+import { useState } from "react";
+import Header from "./components/Header";
+import Intro from "./components/Intro";
+import Quiz from "./components/Quiz";
 
 function App() {
+  const [intro,setIntro] = useState(true)
+
+  function introPage(){
+    setIntro(prev => !prev)
+  }
+
+
   return (
-    <div>App</div>
+      <main>
+        <Header />
+        {intro && <Intro setIntro={introPage} />}
+        {!intro && <Quiz />}
+      </main>
   );
 }
 

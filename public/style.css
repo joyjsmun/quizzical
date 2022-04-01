@@ -1,8 +1,65 @@
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
+}
+
+
+main{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(images/quizzical.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100px;
+    background-color: #fdabb0;
+    font-size: 2em;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+.intro{
+   text-align: center;
+   font-weight: 600;
+}
+
+h1{
+    font-size: 4em;
+
+}
+
+h3{
+    font-size: 1.8em;
+  
+}
+
+.intro button{
+border:none;
+width: 193px;
+height: 82px;
+color: white;
+font-size: 1.6em;
+margin-top: 30px;
+background:#6adee2;
+border-radius: 15px;
+font-weight: 600;
 }
