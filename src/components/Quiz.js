@@ -5,10 +5,10 @@ export default function Quiz() {
         <div className="quizMain">
             <DataFetcher >
            {(loading,data) => (
-               console.log(data.results),
-               loading ? <h1>loading</h1> : <p>success</p>
+               console.log(loading,data),
+               loading ? <h1>loading</h1> : <p>{data.results.map(q => q.question)}</p>
            )}
-        </DataFetcher>
+       
             <div className="question__section">
                 <div className="question__menu">
                 <h3 className="question">In what year was the game "Fallout" released?</h3>
@@ -23,7 +23,7 @@ export default function Quiz() {
             <hr/>
             </div>
 
-
+            </DataFetcher>
         </div>
     )
 }
