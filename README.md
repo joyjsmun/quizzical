@@ -7,7 +7,8 @@
 - [x] Call API for quiz
 - [x] Fetching question
 - [x] Fetching correct answer + incorrect answers together
-- [x] Clicking the answer
+- [x] Shuffle answers in array
+- [ ] Clicking the answer
 - [ ] Correcting each question
 - [ ] Provide Score
 - [ ] Play again 
