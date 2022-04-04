@@ -14,7 +14,7 @@ export default function Quiz() {
               
     },[])
     
-    console.log(formData.data)
+    // console.log(formData.data)
     return(
         <div className="quizMain">
           {formData.loading ? "...loading" : formData.data.map((q) => 
@@ -24,11 +24,13 @@ export default function Quiz() {
                 {/* <p>☰</p> */}
             </div>
                 <div className="answer__box">
-                    {console.log(q.incorrect_answers)}
-                    <div className="answer">1</div>
+                    {!q.incorrect_answers ? null 
+                    : 
+                    q.incorrect_answers.map(an => <div className="answer">{an}</div>)}
+                    {/* <div className="answer">1</div>
                     <div className="answer">2</div>
                     <div className="answer">3</div>
-                    <div className="answer">4</div>
+                    <div className="answer">4</div> */}
                 </div>
             <hr/>
             </div>)}
