@@ -15,18 +15,27 @@ export default function Quiz() {
             {
             loading:false,
             data:data.results,
-            answers:data
+            answers:data.results.map(t => {
+                let newArray = []
+                newArray = t.incorrect_answers.map(an => an)
+                newArray.push(t.correct_answer)
+               return (
+                   newArray
+               )
+            })
         })) 
     },[])
     
-    console.log(formData.data.map(t => {
-        let newArray = []
-        newArray = t.incorrect_answers.map(an => an)
-        newArray.push(t.correct_answer)
-       return (
-           console.log(newArray)
-       )
-    }))
+    console.log(formData.answers)
+
+    // console.log(formData.data.map(t => {
+    //     let newArray = []
+    //     newArray = t.incorrect_answers.map(an => an)
+    //     newArray.push(t.correct_answer)
+    //    return (
+    //        console.log(newArray)
+    //    )
+    // }))
     return(
         <div className="quizMain">
           {formData.loading ? "...loading" : formData.data.map((q) => (
