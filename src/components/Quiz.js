@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import shuffle from "./Shuffle";
 
 export default function Quiz() {
     const [formData,setFormData] = useState({
@@ -20,22 +21,16 @@ export default function Quiz() {
                 newArray = t.incorrect_answers.map(an => an)
                 newArray.push(t.correct_answer)
                return (
-                   newArray
+                    shuffle(newArray)
                )
             })
         })) 
     },[])
-    console.log(formData.data)
+
+
     console.log(formData.answers)
 
-    // console.log(formData.data.map(t => {
-    //     let newArray = []
-    //     newArray = t.incorrect_answers.map(an => an)
-    //     newArray.push(t.correct_answer)
-    //    return (
-    //        console.log(newArray)
-    //    )
-    // }))
+   
     return(
         <div className="quizMain">
           {formData.loading ? "...loading" : formData.data.map((q) => (
