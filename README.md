@@ -4,14 +4,14 @@
 
 - [x] Intro page / Header
 - [x] Styling Quiz Screen
-- [x] Call API for quiz
 - [x] Fetching question
-- [x] Fetching correct answer + incorrect answers together
+- [x] Combining correct answer + incorrect answers together
 - [x] Shuffling answers in array
-- [ ] Clicking the answer
-- [ ] Correcting each question
-- [ ] Provide Score
-- [ ] Play again 
+- [ ] Marking the answer
+- [ ] Submiting answers
+- [ ] Showing correct answers
+- [ ] Tallying up the scores
+- [ ] Clicking play again  
 
 
 ### Extra
