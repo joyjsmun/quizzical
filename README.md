@@ -5,6 +5,8 @@
 - [x] Intro page / Header
 - [x] Styling Quiz Screen
 - [x] Call API for quiz
+- [x] Fetching question
+- [x] Fetching correct answer + incorrect answers together
 - [x] Clicking the answer
 - [ ] Correcting each question
 - [ ] Provide Score

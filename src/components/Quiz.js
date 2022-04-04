@@ -25,7 +25,7 @@ export default function Quiz() {
             })
         })) 
     },[])
-    
+    console.log(formData.data)
     console.log(formData.answers)
 
     // console.log(formData.data.map(t => {
