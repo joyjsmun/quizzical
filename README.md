@@ -5,8 +5,7 @@
 - [x] Intro page / Header
 - [x] Styling Quiz Screen
 - [x] Call API for quiz
-- [ ] Clicking the answer
-- [ ] Clicking the answer
+- [x] Clicking the answer
 - [ ] Correcting each question
 - [ ] Provide Score
 - [ ] Play again 
