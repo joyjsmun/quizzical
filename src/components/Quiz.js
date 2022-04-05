@@ -17,41 +17,32 @@ export default function Quiz() {
             loading:false,
             data:data.results,
             answers:data.results.map(t => {
-                let newArray = []
-                newArray = t.incorrect_answers.map(an => an)
-                newArray.push(t.correct_answer)
+                let newAnswersArray = []
+                newAnswersArray = t.incorrect_answers.map(an => an)
+                newAnswersArray.push(t.correct_answer)
                return (
-                    shuffle(newArray)
+                    shuffle(newAnswersArray)
                )
             })
         })) 
     },[])
-
-
-    console.log(formData.answers)
-
    
     return(
         <div className="quizMain">
-          {formData.loading ? "...loading" : formData.data.map((q) => (
-           <div className="question__section">
-                <div className="question__menu">
-                <h3 className="question">{q.question}</h3>
-                {/* <p>☰</p> */}
-            </div>
-                <div className="answer__box">
-                    {/* {!q.incorrect_answers ? null 
-                    : 
-                    q.incorrect_answers.map(an => <div className="answer">{an}</div>)} */}
-                    {/* <div className="answer">1</div>
-                    <div className="answer">2</div>
-                    <div className="answer">3</div>
-                    <div className="answer">4</div> */}
+          {formData.loading ? "...loading" : formData.data.map((item, index) => (
+            <div className="question__section">
+                <div className="qustion__menu">
+                    <div className="question">{item.question}</div>
                 </div>
-            <hr/>
+            <div className="answer__box">
+                {formData.answers&& formData.answers[index].map(a => <div className="answer">{a}</div>)}
             </div>
-            
+            <hr/>
+          </div>
             ))}
+          
         </div>
     )
 }
+
+{/* <p>☰</p> */}
