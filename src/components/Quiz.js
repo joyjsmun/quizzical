@@ -8,6 +8,14 @@ export default function Quiz() {
         answers:[]
     })
 
+    const [checked,setChecked] = useState(false)
+
+    const clcicked = (event) => {
+        event.preventDefault()
+        event.target.className = "clicked"
+    }
+
+
     useEffect(()=>{
         setFormData({loading:true, data:[],answers:[]})
         fetch("https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple")
@@ -34,7 +42,7 @@ export default function Quiz() {
                 <div className="qustion__menu">
                     <div className="question">{(item.question.toString())}</div>
                 </div>
-            <div className="answer__box">
+            <div className="answer__box" onClick={clcicked}>
                 {formData.answers&& formData.answers[index].map(a => <div className="answer">{(a).toString()}</div>)}
             </div>
             <hr/>

@@ -103,7 +103,8 @@ font-weight: 600;
 
 }
 
-.answer{
+.answer,
+.clicked{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,7 +116,8 @@ font-weight: 600;
     cursor: pointer;
 }
 
-.answer:hover {
+.answer:hover,
+.clicked {
     background-color:#FFFCD2 ;
     border: 0.8px solid #aec6d0;
 }
