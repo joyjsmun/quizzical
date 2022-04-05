@@ -85,10 +85,9 @@ font-weight: 600;
 }
 
 .question{
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 500;
     text-align: center;
-    padding-left: 100px;
 }
 
 .question__menu{
@@ -108,13 +107,17 @@ font-weight: 600;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 130px;
-    height: 30px;
+    width: 150px;
     background-color: whitesmoke;
-    
     padding:20px;
     border-radius: 17px;
     text-align:center;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background-color:#FFFCD2 ;
+    border: 0.8px solid #aec6d0;
 }
 
 hr{

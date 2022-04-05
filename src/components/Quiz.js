@@ -32,10 +32,10 @@ export default function Quiz() {
           {formData.loading ? "...loading" : formData.data.map((item, index) => (
             <div className="question__section">
                 <div className="qustion__menu">
-                    <div className="question">{item.question}</div>
+                    <div className="question">{(item.question.toString())}</div>
                 </div>
             <div className="answer__box">
-                {formData.answers&& formData.answers[index].map(a => <div className="answer">{a}</div>)}
+                {formData.answers&& formData.answers[index].map(a => <div className="answer">{(a).toString()}</div>)}
             </div>
             <hr/>
           </div>
