@@ -7,8 +7,8 @@
 - [x] Fetching question
 - [x] Combining correct answer + incorrect answers together
 - [x] Shuffling answers in array
-- [ ] Hover
-- [ ] Marking the answer
+- [x] Hover
+- [x] Marking the answer
 - [ ] Submiting answers
 - [ ] Showing correct answers
 - [ ] Tallying up the scores

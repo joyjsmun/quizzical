@@ -52,10 +52,11 @@ h3{
   
 }
 
-.intro button{
+.intro
+,button{
 border:none;
 width: 193px;
-height: 82px;
+padding:20px;
 color: white;
 font-size: 1.6em;
 margin-top: 30px;
@@ -103,25 +104,41 @@ font-weight: 600;
 
 }
 
-.answer,
-.clicked{
+.answer
+{
     display: flex;
+    font-size: 0.9em;
     justify-content: center;
     align-items: center;
     width: 150px;
     background-color: whitesmoke;
+    padding:10px;
+    border-radius: 17px;
+    text-align:center;
+    cursor: pointer;
+}
+
+.answer:hover,.clicked {
+    background-color:#FFFCD2 ;
+    border: 0.8px solid #aec6d0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
     padding:20px;
     border-radius: 17px;
     text-align:center;
     cursor: pointer;
 }
 
-.answer:hover,
-.clicked {
-    background-color:#FFFCD2 ;
-    border: 0.8px solid #aec6d0;
-}
-
 hr{
     border: 1px solid #aec6d0;
+}
+
+.submit__button {
+    border: none;
+    font-size: 1.0em;
+    display: flex;
+    
+    text-align: center;
 }

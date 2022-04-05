@@ -4,7 +4,7 @@ import Intro from "./components/Intro";
 import Quiz from "./components/Quiz";
 
 function App() {
-  const [intro,setIntro] = useState(true)
+  const [intro,setIntro] = useState(false)
 
   function introPage(){
     setIntro(prev => !prev)

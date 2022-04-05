@@ -10,10 +10,21 @@ export default function Quiz() {
 
     const [checked,setChecked] = useState(false)
 
-    const clcicked = (event) => {
-        event.preventDefault()
-        event.target.className = "clicked"
+// fiqure out how to save the clicked answers and tally the score
+
+    let correctArray =[]
+    const checkedAnswer = (answer) => {
+        correctArray.push(answer)
+        console.log(correctArray)
     }
+
+    const clicked = (event) => {
+        event.preventDefault()
+        event.target.classList.toggle('clicked') 
+        let clickedAnswer = event.target.outerText
+      
+    }
+
 
 
     useEffect(()=>{
@@ -34,22 +45,33 @@ export default function Quiz() {
             })
         })) 
     },[])
+
+    
    
     return(
-        <div className="quizMain">
+        <form className="quizMain">
           {formData.loading ? "...loading" : formData.data.map((item, index) => (
             <div className="question__section">
                 <div className="qustion__menu">
-                    <div className="question">{(item.question.toString())}</div>
+                    <div className="question">{item.question}</div>
+                    {checkedAnswer(item.correct_answer)}
+                    
                 </div>
-            <div className="answer__box" onClick={clcicked}>
-                {formData.answers&& formData.answers[index].map(a => <div className="answer">{(a).toString()}</div>)}
+            <div className="answer__box"  >
+                {formData.answers 
+                && formData.answers[index].map((a,i) => (
+                <div className="answer" onClick={clicked} >{(a).toString()}
+               
+                </div>
+                
+                ))}
+                
             </div>
             <hr/>
           </div>
             ))}
-          
-        </div>
+            {!formData.loading && <button type="submit" className="submit__button">Check Answers</button>}
+        </form>
     )
 }
 
