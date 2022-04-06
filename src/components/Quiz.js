@@ -15,7 +15,7 @@ export default function Quiz() {
     let correctArray =[]
     const checkedAnswer = (answer) => {
         correctArray.push(answer)
-        console.log(correctArray)
+        // console.log(correctArray)
     }
 
     const clicked = (event) => {
