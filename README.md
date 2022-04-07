@@ -9,7 +9,8 @@
 - [x] Shuffling answers in array
 - [x] Hover
 - [x] Marking the answer
-- [ ] Submiting answers
+- [x] Submiting answers
+- [x] Showing error msg
 - [ ] Showing correct answers
 - [ ] Tallying up the scores
 - [ ] Clicking play again  

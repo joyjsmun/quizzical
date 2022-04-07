@@ -8,10 +8,12 @@ export default function Quiz() {
         answers:[]
     })
 
+    const [errorMsg,setErrorMsg] = useState(false)
+
     const [checked,setChecked] = useState(false)
 
 // fiqure out how to save the clicked answers and tally the score
-    let clickedAnswer = []
+  
     let correctArray =[]
     const checkedAnswer = (answer) => {
         correctArray.push(answer)
@@ -21,21 +23,25 @@ export default function Quiz() {
     const clicked = (event) => {
         event.preventDefault()
         event.target.classList.toggle('clicked') 
-       
-        clickedAnswer.push(event.target.outerText)
-        console.log(clickedAnswer)
       
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
-        if (checkedAnswer.length < 5) {
-           document.getElementById("errorMsg").classList.remove("errorMsg")
-            
-        }
+        console.log("working")
+        const ansLength = document.getElementsByClassName("clicked").length
+       setErrorMsg(() => {
+           if(ansLength < 5){
+               console.log(ansLength)
+               return true
+           }else{
+            console.log(ansLength)
+               return false
+           }
+       })
     }
 
-    
+ 
 
     useEffect(()=>{
         setFormData({loading:true, data:[],answers:[]})
@@ -59,7 +65,7 @@ export default function Quiz() {
     
    
     return(
-        <form className="quizMain">
+        <div className="quizMain">
           {formData.loading ? "...loading" : formData.data.map((item, index) => (
             <div className="question__section">
                 <div className="qustion__menu">
@@ -82,10 +88,10 @@ export default function Quiz() {
           
             ))}
             <div className="bottom">
-            {<p id="errorMsg" className="errorMsg">Please answer all questions</p>}
-            {!formData.loading && <button type="submit"  onClick={submitHandler} className="submit__button">Check Answers</button>}
+            {errorMsg && <p>Please answer all questions!</p>}
+            {!formData.loading && <button onClick={submitHandler} className="submit__button">Check Answers</button>}
             </div>
-        </form>
+        </div>
     )
 }
 
