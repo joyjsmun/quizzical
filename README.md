@@ -12,7 +12,7 @@
 - [x] Submiting answers
 - [x] Showing error msg
 - [ ] Showing correct answers
-- [ ] Tallying up the scores
+- [x] Tallying up the scores
 - [ ] Clicking play again  
 
 

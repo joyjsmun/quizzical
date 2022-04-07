@@ -6,19 +6,29 @@ export default function Quiz() {
         loading:false,
         data:[],
         answers:[],
-        score:""
+      
     })
 
     const [errorMsg,setErrorMsg] = useState(false)
+    const [totalScore,setTotalScore] = useState(0)
 
-    const [checked,setChecked] = useState(false)
 
 // fiqure out how to save the clicked answers and tally the score
 
     let checkedAnswerArray = []
     let correctAnswersArray = []
     let correctArray =[]
-    let score = ""
+    let score = 0
+
+    const showingAnswer = () => {
+        const answer = document.getElementsByClassName("answer")
+
+    //     function combineAnswer(){
+    //    for(let i=0; i< 4; i++){
+    //        an.push(answers[i].outerText)
+    //    }
+    // }
+    }
 
     const compareAnswer = () =>{
         for(let i = 0; i < checkedAnswerArray.length; i++){
@@ -31,13 +41,14 @@ export default function Quiz() {
                 // console.log("no match",checkedAnswerArray[i], correctAnswersArray[j])
             }
         }
+     setTotalScore(score)
+     showingAnswer()
     } 
 
 
     const combineCorrectAnswers = () => {
         for(let i=0; i<5; i++){
             correctAnswersArray.push(formData.data[i].correct_answer)
-            
         }
         return correctAnswersArray
     }
@@ -74,8 +85,6 @@ export default function Quiz() {
             combineAnswer()
             combineCorrectAnswers() 
             compareAnswer()
-            console.log(checkedAnswerArray)
-            console.log(correctAnswersArray)
            }
        })
     }
@@ -89,7 +98,6 @@ export default function Quiz() {
         .then(data => setFormData(
             {
             loading:false,
-            score:"",
             data:data.results,           
             answers:data.results.map(t => {
                 let newAnswersArray = []
@@ -103,7 +111,7 @@ export default function Quiz() {
         })) 
     },[])
 
-      
+   
    
     return(
         <div className="quizMain">
@@ -129,7 +137,8 @@ export default function Quiz() {
           
             ))}
             <div className="bottom">
-            {score ? <p id="score">{score}</p> : null}
+            
+            {totalScore > 0 && <p id="score">Total Scores: {totalScore} /5</p>}
             {errorMsg && <p>Please answer all questions!</p>}
             {!formData.loading && <button onClick={submitHandler} className="submit__button">Check Answers</button>}
             </div>
