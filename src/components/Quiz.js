@@ -13,9 +13,11 @@ export default function Quiz() {
     const [checked,setChecked] = useState(false)
 
 // fiqure out how to save the clicked answers and tally the score
+
+    let checkedAnswerArray = []
   
     let correctArray =[]
-    const checkedAnswer = (answer) => {
+    const marking = (answer) => {
         correctArray.push(answer)
         // console.log(correctArray)
     }
@@ -26,17 +28,28 @@ export default function Quiz() {
       
     }
 
+    const combineCorrectAnswer = () => {
+        console.log(data.results)
+    }
+
     const submitHandler = (event) => {
         event.preventDefault();
-        console.log("working")
-        const ansLength = document.getElementsByClassName("clicked").length
+        const answers = document.getElementsByClassName("clicked")
+        const ansLength = answers.length
+      
+        function combineAnswer(){
+       for(let i=0; i< ansLength; i++){
+           checkedAnswerArray.push(answers[i].outerText)
+       }
+    }
+      
        setErrorMsg(() => {
            if(ansLength < 5){
-               console.log(ansLength)
                return true
            }else{
-            console.log(ansLength)
-               return false
+            combineAnswer()
+            combineCorrectAnswer()
+            console.log(checkedAnswerArray)
            }
        })
     }
@@ -70,7 +83,7 @@ export default function Quiz() {
             <div className="question__section">
                 <div className="qustion__menu">
                     <div className="question">{item.question}</div>
-                    {checkedAnswer(item.correct_answer)}
+                    {marking(item.correct_answer)}
                     
                 </div>
             <div className="answer__box"  >
@@ -88,6 +101,7 @@ export default function Quiz() {
           
             ))}
             <div className="bottom">
+            <p id="demo"></p>
             {errorMsg && <p>Please answer all questions!</p>}
             {!formData.loading && <button onClick={submitHandler} className="submit__button">Check Answers</button>}
             </div>
