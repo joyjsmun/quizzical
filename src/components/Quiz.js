@@ -11,7 +11,7 @@ export default function Quiz() {
     const [checked,setChecked] = useState(false)
 
 // fiqure out how to save the clicked answers and tally the score
-
+    let clickedAnswer = []
     let correctArray =[]
     const checkedAnswer = (answer) => {
         correctArray.push(answer)
@@ -21,11 +21,21 @@ export default function Quiz() {
     const clicked = (event) => {
         event.preventDefault()
         event.target.classList.toggle('clicked') 
-        let clickedAnswer = event.target.outerText
+       
+        clickedAnswer.push(event.target.outerText)
+        console.log(clickedAnswer)
       
     }
 
+    const submitHandler = (event) => {
+        event.preventDefault();
+        if (checkedAnswer.length < 5) {
+            console.log(checkedAnswer.length)
+            document.getElementsByName("error").addClassName = "display"
+        }
+    }
 
+    
 
     useEffect(()=>{
         setFormData({loading:true, data:[],answers:[]})
@@ -69,8 +79,10 @@ export default function Quiz() {
             </div>
             <hr/>
           </div>
+          
             ))}
-            {!formData.loading && <button type="submit" className="submit__button">Check Answers</button>}
+            <p className="error">Please answer all questions</p>
+            {!formData.loading && <button type="submit"  onClick={submitHandler} className="submit__button">Check Answers</button>}
         </form>
     )
 }
