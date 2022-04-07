@@ -5,7 +5,8 @@ export default function Quiz() {
     const [formData,setFormData] = useState({
         loading:false,
         data:[],
-        answers:[]
+        answers:[],
+        score:""
     })
 
     const [errorMsg,setErrorMsg] = useState(false)
@@ -17,6 +18,21 @@ export default function Quiz() {
     let checkedAnswerArray = []
     let correctAnswersArray = []
     let correctArray =[]
+    let score = ""
+
+    const compareAnswer = () =>{
+        for(let i = 0; i < checkedAnswerArray.length; i++){
+            for(let j =0; j<correctAnswersArray.length; j++){
+                if(checkedAnswerArray[i] === correctAnswersArray[j]){
+                    score++
+                    console.log("yes match",score, checkedAnswerArray[i],correctAnswersArray[j]);
+                    continue;
+                }
+                // console.log("no match",checkedAnswerArray[i], correctAnswersArray[j])
+            }
+        }
+    } 
+
 
     const combineCorrectAnswers = () => {
         for(let i=0; i<5; i++){
@@ -57,7 +73,7 @@ export default function Quiz() {
            }else{
             combineAnswer()
             combineCorrectAnswers() 
-              
+            compareAnswer()
             console.log(checkedAnswerArray)
             console.log(correctAnswersArray)
            }
@@ -73,6 +89,7 @@ export default function Quiz() {
         .then(data => setFormData(
             {
             loading:false,
+            score:"",
             data:data.results,           
             answers:data.results.map(t => {
                 let newAnswersArray = []
@@ -112,7 +129,7 @@ export default function Quiz() {
           
             ))}
             <div className="bottom">
-            <p id="demo"></p>
+            {score ? <p id="score">{score}</p> : null}
             {errorMsg && <p>Please answer all questions!</p>}
             {!formData.loading && <button onClick={submitHandler} className="submit__button">Check Answers</button>}
             </div>
