@@ -104,6 +104,7 @@ font-weight: 600;
 
 }
 
+
 .answer
 {
     display: flex;
@@ -135,14 +136,24 @@ hr{
     border: 1px solid #aec6d0;
 }
 
+.bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p{
+    font-size: 1.2em;
+    font-weight: 600;
+    color: tomato;
+}
+
 .submit__button {
     border: none;
-    font-size: 1.0em;
-    display: flex;
-    
+    font-size: 1.1em;
     text-align: center;
 }
 
-.error{
+.errorMsg{
     display: none;
 }

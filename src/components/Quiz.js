@@ -30,8 +30,8 @@ export default function Quiz() {
     const submitHandler = (event) => {
         event.preventDefault();
         if (checkedAnswer.length < 5) {
-            console.log(checkedAnswer.length)
-            document.getElementsByName("error").addClassName = "display"
+           document.getElementById("errorMsg").classList.remove("errorMsg")
+            
         }
     }
 
@@ -81,8 +81,10 @@ export default function Quiz() {
           </div>
           
             ))}
-            <p className="error">Please answer all questions</p>
+            <div className="bottom">
+            {<p id="errorMsg" className="errorMsg">Please answer all questions</p>}
             {!formData.loading && <button type="submit"  onClick={submitHandler} className="submit__button">Check Answers</button>}
+            </div>
         </form>
     )
 }
