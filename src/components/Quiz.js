@@ -15,11 +15,22 @@ export default function Quiz() {
 // fiqure out how to save the clicked answers and tally the score
 
     let checkedAnswerArray = []
-  
+    let correctAnswersArray = []
     let correctArray =[]
+
+    const combineCorrectAnswers = () => {
+        for(let i=0; i<5; i++){
+            correctAnswersArray.push(formData.data[i].correct_answer)
+            
+        }
+        return correctAnswersArray
+    }
+
+
+    
     const marking = (answer) => {
         correctArray.push(answer)
-        // console.log(correctArray)
+      
     }
 
     const clicked = (event) => {
@@ -28,10 +39,7 @@ export default function Quiz() {
       
     }
 
-    const combineCorrectAnswer = () => {
-        console.log(data.results)
-    }
-
+  
     const submitHandler = (event) => {
         event.preventDefault();
         const answers = document.getElementsByClassName("clicked")
@@ -48,14 +56,16 @@ export default function Quiz() {
                return true
            }else{
             combineAnswer()
-            combineCorrectAnswer()
+            combineCorrectAnswers() 
+              
             console.log(checkedAnswerArray)
+            console.log(correctAnswersArray)
            }
        })
     }
 
- 
 
+ 
     useEffect(()=>{
         setFormData({loading:true, data:[],answers:[]})
         fetch("https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple")
@@ -63,19 +73,20 @@ export default function Quiz() {
         .then(data => setFormData(
             {
             loading:false,
-            data:data.results,
+            data:data.results,           
             answers:data.results.map(t => {
                 let newAnswersArray = []
                 newAnswersArray = t.incorrect_answers.map(an => an)
                 newAnswersArray.push(t.correct_answer)
                return (
+                  
                     shuffle(newAnswersArray)
                )
             })
         })) 
     },[])
 
-    
+      
    
     return(
         <div className="quizMain">
