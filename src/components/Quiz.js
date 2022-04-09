@@ -19,17 +19,8 @@ export default function Quiz() {
     let correctArray =[]
     let score = 0
 
-    ///////
-    const showingAnswer = () => {
-        const answer = document.getElementsByClassName("answer")
-        
+  
 
-    //     function combineAnswer(){
-    //    for(let i=0; i< 4; i++){
-    //        an.push(answers[i].outerText)
-    //    }
-    // }
-    }
 
     const compareAnswer = () =>{
         for(let i = 0; i < checkedAnswerArray.length; i++){
@@ -39,11 +30,10 @@ export default function Quiz() {
                     console.log("yes match",score, checkedAnswerArray[i],correctAnswersArray[j]);
                     continue;
                 }
-                // console.log("no match",checkedAnswerArray[i], correctAnswersArray[j])
+
             }
         }
      setTotalScore(score)
-     showingAnswer()
     } 
 
 
@@ -67,6 +57,12 @@ export default function Quiz() {
       
     }
 
+    const replayHandler = (event) => {
+        setSubmit(prev => !prev)
+
+        document.location.reload(true)
+    }
+
   
     const submitHandler = (event) => {
         event.preventDefault();
@@ -87,7 +83,6 @@ export default function Quiz() {
             combineAnswer()
             combineCorrectAnswers() 
             compareAnswer()
-            showingAnswer()
            }
        })
     }
@@ -144,14 +139,17 @@ export default function Quiz() {
           </div>
           
             ))}
-            <div className="bottom">
-            
-            {totalScore > 0 && <p id="score">Total Scores: {totalScore} /5</p>}
+            {!submited ? <div className="bottom">
             {errorMsg && <p>Please answer all questions!</p>}
-            {!formData.loading && <button onClick={submitHandler} className="submit__button">Check Answers</button>}
+            {!formData.loading && <button onClick={submitHandler} className="submit__button">Check Answer</button>}
             </div>
+            : 
+            <div className="bottom">
+            {totalScore > 0 && <p id="score">Total Scores: {totalScore} /5</p>}
+            <button onClick={replayHandler} className="submit__button">Play Again</button>
+            </div>
+        }
         </div>
     )
 }
 
-{/* <p>☰</p> */}

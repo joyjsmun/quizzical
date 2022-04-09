@@ -11,7 +11,7 @@
 - [x] Marking the answer
 - [x] Submiting answers
 - [x] Showing error msg
-- [ ] Showing correct answers
+- [x] Showing correct answers
 - [x] Tallying up the scores
 - [ ] Clicking play again  
 
