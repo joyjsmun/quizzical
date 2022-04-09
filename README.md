@@ -13,12 +13,10 @@
 - [x] Showing error msg
 - [x] Showing correct answers
 - [x] Tallying up the scores
-- [ ] Clicking play again  
+- [x] Clicking play again  
 
 
 ### Extra
+- [ ] Skipping Intro page(after cliking the play again button) 
 - [ ] Save the score with localstorage
 - [ ] Time limit
-
-
-- [ ] Deploy
