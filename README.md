@@ -20,3 +20,6 @@
 - [ ] Skipping Intro page(after cliking the play again button) 
 - [ ] Save the score with localstorage
 - [ ] Time limit
+
+
+https://joyjsmun.github.io/quizzical/
