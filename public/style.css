@@ -132,6 +132,11 @@ font-weight: 600;
     cursor: pointer;
 }
 
+.correctAnswer{
+    color: tomato;
+    font-weight: bold;
+}
+
 hr{
     border: 1px solid #aec6d0;
 }

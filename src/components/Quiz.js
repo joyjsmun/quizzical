@@ -11,17 +11,18 @@ export default function Quiz() {
 
     const [errorMsg,setErrorMsg] = useState(false)
     const [totalScore,setTotalScore] = useState(0)
+    const [submited,setSubmit] = useState(false)
 
-
-// fiqure out how to save the clicked answers and tally the score
 
     let checkedAnswerArray = []
     let correctAnswersArray = []
     let correctArray =[]
     let score = 0
 
+    ///////
     const showingAnswer = () => {
         const answer = document.getElementsByClassName("answer")
+        
 
     //     function combineAnswer(){
     //    for(let i=0; i< 4; i++){
@@ -82,9 +83,11 @@ export default function Quiz() {
            if(ansLength < 5){
                return true
            }else{
+            setSubmit(prev => !prev)
             combineAnswer()
             combineCorrectAnswers() 
             compareAnswer()
+            showingAnswer()
            }
        })
     }
@@ -120,18 +123,23 @@ export default function Quiz() {
                 <div className="qustion__menu">
                     <div className="question">{item.question}</div>
                     {marking(item.correct_answer)}
-                    
                 </div>
-            <div className="answer__box"  >
+                
+        {!submited ? <div className="answer__box"  >
+                <p>{console.log(item.correct_answer)}</p>
                 {formData.answers 
                 && formData.answers[index].map((a,i) => (
-                <div className="answer" onClick={clicked} >{(a).toString()}
-               
-                </div>
-                
+                <div className="answer" onClick={clicked} >{a}</div>
                 ))}
-                
+            </div> :
+                <div className="answer__box"  >
+                <p>{console.log(item.correct_answer)}</p>
+                {formData.answers 
+                && formData.answers[index].map((a,i) => (
+                <div className="answer" onClick={clicked} >{item.correct_answer === a ? <p className="correctAnswer">{a}</p> : a}</div>
+                ))}
             </div>
+            }
             <hr/>
           </div>
           
