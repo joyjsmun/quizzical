@@ -91,7 +91,7 @@ export default function Quiz() {
  
     useEffect(()=>{
         setFormData({loading:true, data:[],answers:[]})
-        fetch("https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple")
+        fetch("https://opentdb.com/api.php?amount=5&category=9&difficulty=easy")
         .then(res => res.json())
         .then(data => setFormData(
             {
